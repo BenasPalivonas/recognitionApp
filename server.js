@@ -23,7 +23,7 @@ const knex = require('knex')({
 app.use(bodyParser.json());
 app.use(cors());
 app.get('/', (req, res) => {
-    get(req, res, knex);
+    get.getHandler(req, res, knex);
 })
 app.listen(process.env.PORT, () => {
     console.log("app is running on port " + process.env.PORT);
