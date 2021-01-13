@@ -25,7 +25,7 @@ app.use(cors());
 app.get('/', (req, res) => {
     get(req, res, knex);
 })
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("app is running");
 })
 app.post('/signin', (req, res) => {
