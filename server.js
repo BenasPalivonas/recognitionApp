@@ -11,8 +11,8 @@ const id = require('./controls/id.js');
 const image = require('./controls/image.js');
 const signIn = require('./controls/signin.js');
 const knex = require('knex')({
-    clinet: 'pg',
-    connetion: {
+    client: 'pg',
+    connection: {
         connectionString: process.env.DATABASE_URL,
         ssl: true
     }
