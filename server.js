@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     get(req, res, knex);
 })
 app.listen(process.env.PORT, () => {
-    console.log("app is running");
+    console.log("app is running on port " + process.env.PORT);
 })
 app.post('/signin', (req, res) => {
     signIn.signInHandler(req, res, knex, bcrypt);
