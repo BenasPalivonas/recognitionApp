@@ -9,7 +9,7 @@ const register = require('./controls/register.js');
 const get = require('./controls/get.js');
 const id = require('./controls/id.js');
 const image = require('./controls/image.js');
-const signIn = require('./controls/signIn.js');
+const signIn = require('./controls/signin.js');
 const knex = require('knex')({
     client: 'pg',
     connection: {
