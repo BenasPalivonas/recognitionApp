@@ -14,7 +14,7 @@ const knex = require('knex')({
     clinet: 'pg',
     connetion: {
         connectionString: process.env.DATABASE_URL,
-        ssl: ture
+        ssl: true
     }
 });
 
