@@ -21,7 +21,10 @@ register = (req, res, knex, bcrypt) => {
             })
             .then(trx.commit)
             .catch(trx.rollback)
-    }).catch(err => res.status(400).json(false));
+    }).catch(err => {
+        console.log(err);
+        res.status(400).json(false);
+    });
 }
 module.exports = {
     handleRegister: register
