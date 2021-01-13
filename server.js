@@ -11,12 +11,9 @@ const id = require('./controls/id.js');
 const image = require('./controls/image.js');
 const signIn = require('./controls/signin.js');
 const knex = require('knex')({
-    client: 'pg',
-    connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: '123',
-        database: 'facereco'
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
     }
 });
 
