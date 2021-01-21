@@ -2,13 +2,29 @@ const Clarifai = require('clarifai');
 const app = new Clarifai.App({
     apiKey: 'ec0736061a9c46d4977e2e712b6b2a4d'
 });
-const api = (req, res) => {
+const apiface = (req, res) => {
     app.models.predict(
         Clarifai.FACE_DETECT_MODEL,
         req.body.url
     ).then((response) => res.json(response))
         .catch((err) => console.log(err))
 }
+const apifood = (req, res) => {
+    app.models.predict(
+        Clarifai.FOOD_MODEL,
+        req.body.url
+    ).then((response) => res.json(response))
+        .catch((err) => console.log(err))
+}
+const apicolor = (req, res) => {
+    app.models.predict(
+        Clarifai.COLOR_MODEL,
+        req.body.url
+    ).then((response) => res.json(response))
+        .catch((err) => console.log(err))
+}
+
+
 const image = (req, res, knex) => {
     const { id } = req.body;
     knex("users").where("id", "=", id).increment(
@@ -16,7 +32,10 @@ const image = (req, res, knex) => {
             res.json(data);
         }).catch(err => console.log("error", err));
 }
+
 module.exports = {
     imageHandler: image,
-    apiHandler: api
+    apiHandler: apiface,
+    apiFoodHandler: apifood,
+    apiColorHandler: apicolor
 }

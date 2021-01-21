@@ -1,5 +1,5 @@
 register = (req, res, knex, bcrypt) => {
-    const { email, name, password, id } = req.body;
+    const { email, name, password } = req.body;
     console.log(req.body);
     if (password.length === 0 || email.length === 0 || name.length === 0) {
         res.status(400).json("Fill in the required fields");
