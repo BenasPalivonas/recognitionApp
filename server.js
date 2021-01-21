@@ -33,7 +33,7 @@ app.use(cors());
 app.get('/', (req, res) => {
     get.getHandler(req, res, knex);
 })
-app.listen(procces.env.PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log("app is running on port ", process.env.PORT);
 })
 // app.listen(process.env.PORT, () => {
