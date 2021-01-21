@@ -9,32 +9,32 @@ const get = require('./controls/get.js');
 const id = require('./controls/id.js');
 const image = require('./controls/image.js');
 const signIn = require('./controls/signin.js');
-// const knex = require('knex')({
-//     client: 'pg',
-//     connection: {
-//         connectionString: process.env.DATABASE_URL,
-//         ssl: {
-//             rejectUnauthorized: false
-//         }
-//     }
-// });
 const knex = require('knex')({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: '123',
-        database: 'facereco'
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
     }
 });
+// const knex = require('knex')({
+//     client: 'pg',
+//     connection: {
+//         host: '127.0.0.1',
+//         user: 'postgres',
+//         password: '123',
+//         database: 'facereco'
+//     }
+// });
 
 app.use(bodyParser.json());
 app.use(cors());
 app.get('/', (req, res) => {
     get.getHandler(req, res, knex);
 })
-app.listen(3000, () => {
-    console.log("app is running on port 3000 ");
+app.listen(procces.env.PORT, () => {
+    console.log("app is running on port ", process.env.PORT);
 })
 // app.listen(process.env.PORT, () => {
 //     console.log("app is running on port " + process.env.PORT);
